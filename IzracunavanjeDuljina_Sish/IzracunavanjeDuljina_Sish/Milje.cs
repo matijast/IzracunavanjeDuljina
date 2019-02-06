@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IzracunavanjeDuljina_Sish
 {
-    class Milje : IJedinice
+    class Milje 
     {
         public double jedinica
         {
@@ -23,32 +23,32 @@ namespace IzracunavanjeDuljina_Sish
 
         public double U_ft()
         {
-            throw new NotImplementedException();
+            return jedinica * 5280;
         }
 
         public double U_in()
         {
-            throw new NotImplementedException();
+            return jedinica * 63360;
         }
 
         public double U_km()
         {
-            throw new NotImplementedException();
+            return jedinica * 1.6093;
         }
 
         public double U_m()
         {
-            throw new NotImplementedException();
+            return jedinica * 1609.3;
         }
 
         public double U_mi()
         {
-            throw new NotImplementedException();
+            return jedinica;
         }
 
         public double U_mm()
         {
-            throw new NotImplementedException();
+            return jedinica * 1609300;
         }
     }
 }

@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace IzracunavanjeDuljina_Sish
 {
-    public interface IJedinice
+    public class Jedinice
     {
-        double jedinica { get; set; }
+        private static Jedinice Parse(string str)
+        {
+            Jedinice jed = new Jedinice();
+            double unit = Double.Parse(str);
+            return jed;
+        }
+            double jedinica { get; set; }
+
         double U_mm();
         double U_m();
         double U_km();
