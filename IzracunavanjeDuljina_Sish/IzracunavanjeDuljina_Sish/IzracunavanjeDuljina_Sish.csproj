@@ -43,15 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IJedinice.cs" />
-    <Compile Include="Inči.cs" />
-    <Compile Include="KiloMetri.cs" />
-    <Compile Include="Metri.cs" />
-    <Compile Include="MiliMetri.cs" />
+    <Compile Include="Jedinice.cs" />
     <Compile Include="Milje.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stope.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
