@@ -8,20 +8,89 @@ namespace IzracunavanjeDuljina_Sish
 {
     public class Jedinice
     {
-        private static Jedinice Parse(string str)
+        private double my_value;
+  
+        public static Jedinice Parse(string str)
         {
             Jedinice jed = new Jedinice();
-            double unit = Double.Parse(str);
+            string msg = "Duljina nije dobro unešena";
+            try
+            {
+                if (str.TrimEnd(null).EndsWith("mm"))
+                {
+                    jed.Milimetri = Double.Parse(str.Remove(str.IndexOf('m', 2)));
+                    
+                }
+                else if (str.TrimEnd(null).EndsWith("in"))
+                {
+                    jed.Inči = Double.Parse(str.Remove(str.IndexOf('i', 2)));
+                    
+                }
+                else if (str.TrimEnd(null).EndsWith("km"))
+                {
+                    jed.Kilometri = Double.Parse(str.Remove(str.IndexOf('k', 2)));
+                    
+                }
+                else if (str.TrimEnd(null).EndsWith("m"))
+                {
+                    jed.Metri = Double.Parse(str.Remove(str.IndexOf('m', 1)));
+                }
+                else if (str.TrimEnd(null).EndsWith("ft"))
+                {
+                    jed.Stope = Double.Parse(str.Remove(str.IndexOf('f', 2)));
+                }
+                else if (str.TrimEnd(null).EndsWith("mi"))
+                {
+                    jed.Milje = Double.Parse(str.Remove(str.IndexOf('m', 2)));
+                }
+                else
+                    throw new FormatException(msg);
+            }
+            catch (FormatException e){
+                Console.WriteLine(e.Message);
+            }
             return jed;
         }
-            double jedinica { get; set; }
+        private Jedinice() { }
 
-        double U_mm();
-        double U_m();
-        double U_km();
-        double U_in();
-        double U_ft();
-        double U_mi();
+       // public double Value { get { return my_value; } private set { my_value= value; } }
+        public double Inči
+        {
+            get { return my_value/0.0254; }
+            private set { my_value = value*0.0254; }
+        }
 
+        public double Metri
+        {
+            get { return my_value; }
+            private set { my_value = value; }
+        }
+
+        public double Milje
+        {
+            get { return my_value/1609.344; }
+            private set { my_value = value*1609.344; }
+        }
+
+        public double Kilometri
+        {
+            get { return my_value/1000; }
+            private set { my_value = value*1000; }
+        }
+
+        public double Milimetri
+
+        {
+            get { return my_value*1000; }
+            private set { my_value = value/1000; }
+        }
+
+       public double Stope
+        {
+            get { return my_value/0.3048; }
+            private set { my_value = value*0.3048; }
+        }
+
+        
     }
 }
