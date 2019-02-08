@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IzracunavanjeDuljina_Sish
 {
@@ -18,42 +14,39 @@ namespace IzracunavanjeDuljina_Sish
             {
                 if (str.TrimEnd(null).EndsWith("mm"))
                 {
-                    jed.Milimetri = Double.Parse(str.Remove(str.IndexOf('m', 2)));
-                    
+                    jed.Milimetri = Double.Parse(str.Remove(str.IndexOf('m')));
                 }
                 else if (str.TrimEnd(null).EndsWith("in"))
                 {
-                    jed.Inči = Double.Parse(str.Remove(str.IndexOf('i', 2)));
-                    
+                    jed.Inči = Double.Parse(str.Remove(str.IndexOf('i'))); 
                 }
                 else if (str.TrimEnd(null).EndsWith("km"))
                 {
-                    jed.Kilometri = Double.Parse(str.Remove(str.IndexOf('k', 2)));
-                    
+                    jed.Kilometri = Double.Parse(str.Remove(str.IndexOf('k')));
                 }
                 else if (str.TrimEnd(null).EndsWith("m"))
                 {
-                    jed.Metri = Double.Parse(str.Remove(str.IndexOf('m', 1)));
+                    jed.Metri = Double.Parse(str.Remove(str.IndexOf('m')));
                 }
                 else if (str.TrimEnd(null).EndsWith("ft"))
                 {
-                    jed.Stope = Double.Parse(str.Remove(str.IndexOf('f', 2)));
+                    jed.Stope = Double.Parse(str.Remove(str.IndexOf('f')));
                 }
                 else if (str.TrimEnd(null).EndsWith("mi"))
                 {
-                    jed.Milje = Double.Parse(str.Remove(str.IndexOf('m', 2)));
+                    jed.Milje = Double.Parse(str.Remove(str.IndexOf('m')));
                 }
                 else
                     throw new FormatException(msg);
             }
             catch (FormatException e){
                 Console.WriteLine(e.Message);
+                
             }
             return jed;
         }
         private Jedinice() { }
 
-       // public double Value { get { return my_value; } private set { my_value= value; } }
         public double Inči
         {
             get { return my_value/0.0254; }
