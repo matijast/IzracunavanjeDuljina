@@ -18,22 +18,30 @@ namespace IzracunavanjeDuljina_Sish
         {
             
             int jedinice;
+            bool flag = false;
             Jedinice jed;
             List<double> myarray = new List<double>();
-          //  IFormatProvider provider;
-
-            Console.WriteLine("U kojim mjernim jedinicama želiš izračun:");
-            Console.WriteLine("1 za milimetre (mm)\n2 za metre (m)\n3 za kilometre (km)\n4 za inče(in)\n5 za stope (ft)\n6 za milje (mi)");
-            jedinice = Console.Read();
-            Console.ReadLine();
+            //  IFormatProvider provider;
+            while (true)
+            {
+                Console.WriteLine("U kojim mjernim jedinicama želiš izračun:");
+                Console.WriteLine("1 za milimetre (mm)\n2 za metre (m)\n3 za kilometre (km)\n4 za inče(in)\n5 za stope (ft)\n6 za milje (mi)\n0 za izlaz");
+                jedinice = Console.Read();
+                Console.ReadLine();
+                if (jedinice == '0' || jedinice == '1' || jedinice == '2' || jedinice == '3' || jedinice == '4' || jedinice == '5' || jedinice == '6')
+                    break;
+            }
            // provider = System.Globalization.CultureInfo.CreateSpecificCulture("en-GB");
 
             while (true)
             {
+                if (jedinice == '0')
+                    break;
                 Console.WriteLine("Unesi jedinicu(decimalni zarez) i mjernu jedinicu, 0 za prekid");
                 string str = Console.ReadLine();
-                if (str == "0")
+                if (str == "0"|| jedinice ==0)
                     break;
+                flag = true;
                 switch (jedinice) {
                     case '1':
                         jed = Jedinice.Parse(str);
@@ -73,20 +81,21 @@ namespace IzracunavanjeDuljina_Sish
                         break;
                 }
             }
-            double rezultat=0;
-            Console.WriteLine("Rezultat je :");
-            foreach (double var in myarray)
+            
+            if (flag == true)
             {
-                if (var < 0)
+                double rezultat = 0;
+                Console.WriteLine("Rezultat je :");
+                foreach (double var in myarray)
                 {
-                    Console.Write(String.Format("{0:0.000}", var) + " + ");
+                    if (var < 0)
+                        Console.Write(String.Format("{0:0.000}", var) + " + ");
+                    else
+                        Console.Write(String.Format("{0:0.000}", var) + " + ");
                     rezultat += var;
-                    continue;
                 }
-                    Console.Write(String.Format("{0:0.000}",var) + " + ");
-                rezultat += var;
+                Console.Write(String.Format("= {0:0.000}", rezultat) + " " + (E_jedinice)jedinice);
             }
-            Console.Write(String.Format("= {0:0.000}", rezultat) + " "+(E_jedinice)jedinice );
             Console.ReadKey(true);
         }
     }
