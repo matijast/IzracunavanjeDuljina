@@ -32,14 +32,13 @@ namespace IzracunavanjeDuljina_Sish
                     break;
             }
            // provider = System.Globalization.CultureInfo.CreateSpecificCulture("en-GB");
-
+           if (jedinice == '0')  return 0;
+            
             while (true)
-            {
-                if (jedinice == '0')
-                    break;
+           {
                 Console.WriteLine("Unesi jedinicu(decimalni zarez) i mjernu jedinicu, 0 za prekid");
                 string str = Console.ReadLine();
-                if (str == "0"|| jedinice ==0)
+                if (str == "0")
                     break;
                 flag = true;
                 switch (jedinice) {
