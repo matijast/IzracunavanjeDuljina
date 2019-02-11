@@ -36,7 +36,7 @@ namespace IzracunavanjeDuljina_Sish
             
             while (true)
            {
-                Console.WriteLine("Unesi jedinicu(decimalni zarez) i mjernu jedinicu, 0 za prekid");
+                Console.WriteLine("Unesi vrijednost(decimalni zarez) i mjernu jedinicu, 0 za izračun");
                 string str = Console.ReadLine();
                 if (str == "0")
                     break;
