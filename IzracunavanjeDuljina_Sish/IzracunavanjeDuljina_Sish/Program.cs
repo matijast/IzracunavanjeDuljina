@@ -14,7 +14,7 @@ namespace IzracunavanjeDuljina_Sish
     }
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             
             int jedinice;
@@ -96,6 +96,7 @@ namespace IzracunavanjeDuljina_Sish
                 Console.Write(String.Format("= {0:0.000}", rezultat) + " " + (E_jedinice)jedinice);
             }
             Console.ReadKey(true);
+            return 0;
         }
     }
 }
